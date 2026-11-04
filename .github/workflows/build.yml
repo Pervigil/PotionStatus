@@ -1,0 +1,45 @@
+name: Build PotionStatus
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and publish mod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.2.1'
+
+      - name: Build with Gradle
+        run: gradle build --no-daemon
+
+      - name: Publish v1.0.0 release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: PotionStatus v1.0.0
+          body: |
+            First release of PotionStatus for Minecraft Java 1.21.11 (Fabric).
+
+            Download potionstatus-1.0.0.jar and place it in your Minecraft mods folder.
+          files: build/libs/potionstatus-1.0.0.jar
+          make_latest: true

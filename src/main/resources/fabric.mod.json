@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "potionstatus",
+  "version": "${version}",
+  "name": "PotionStatus",
+  "description": "Displays active status effects and their remaining durations on the HUD.",
+  "authors": ["Pervigil"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.pervigil.potionstatus.PotionStatusClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
