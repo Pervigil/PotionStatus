@@ -42,4 +42,5 @@ jobs:
 
             Download potionstatus-1.0.0.jar and place it in your Minecraft mods folder.
           files: build/libs/potionstatus-1.0.0.jar
+          overwrite_files: true
           make_latest: true
