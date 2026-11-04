@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 
 public final class PotionStatusClient implements ClientModInitializer {
@@ -26,7 +26,7 @@ public final class PotionStatusClient implements ClientModInitializer {
     public void onInitializeClient() {
         HudElementRegistry.attachElementBefore(
                 VanillaHudElements.CHAT,
-                ResourceLocation.fromNamespaceAndPath("potionstatus", "effects"),
+                Identifier.fromNamespaceAndPath("potionstatus", "effects"),
                 PotionStatusClient::render
         );
     }
